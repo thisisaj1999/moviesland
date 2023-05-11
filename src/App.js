@@ -5,14 +5,14 @@ import './App.css';
 import MovieCard from './MovieCard';
 import searchIcon from './search.svg';
 
-dotenv.config();
+// dotenv.config();
 
 const App = () => {
   const [movies, setMovies] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
   const searchMovies = async (title) => {
-    const response = await fetch(`${process.env.API_URL}&s=${title}`);
+    const response = await fetch(`${process.env.REACT_APP_API}&s=${title}`);
     const data = await response.json();
 
     setMovies(data.Search);
