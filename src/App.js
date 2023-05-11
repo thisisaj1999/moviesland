@@ -12,7 +12,9 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const searchMovies = async (title) => {
-    const response = await fetch(`${process.env.REACT_APP_API}&s=${title}`);
+    const response = await fetch(`${process.env.REACT_APP_API}&s=${title}`, {
+      referrerPolicy: 'no-referrer-when-downgrade',
+    });
     const data = await response.json();
 
     setMovies(data.Search);
