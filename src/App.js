@@ -2,8 +2,8 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 
 import './App.css';
-import MovieCard from './MovieCard';
-import searchIcon from './search.svg';
+import MovieCard from './components/MovieCard';
+import searchIcon from './assets/search.svg';
 
 // dotenv.config();
 
