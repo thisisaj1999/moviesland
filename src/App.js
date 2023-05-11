@@ -1,22 +1,20 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 import './App.css';
 import MovieCard from './components/MovieCard';
 import searchIcon from './assets/search.svg';
 
-// dotenv.config();
 
 const App = () => {
   const [movies, setMovies] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
   const searchMovies = async (title) => {
-    const response = await fetch(`${process.env.REACT_APP_API}&s=${title}`, {
-      referrerPolicy: 'no-referrer-when-downgrade',
-    });
-    const data = await response.json();
+    const res = await axios.get(`${process.env.REACT_APP_API}&s=${title}`);
 
+    const data = await res.data;
     setMovies(data.Search);
   };
 
